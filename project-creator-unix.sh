@@ -20,7 +20,7 @@ read GROUP_NAME
 sudo chown $PROJECT_OWNER:$GROUP_NAME ./$PROJECT_NAME/*
 sudo chmod -R 755 ./$PROJECT_NAME/*
 
-source ./$PROJECT_NAME/bin/activate
+./$PROJECT_NAME/bin/activate
 
 touch ./$PROJECT_NAME/requirements.txt
 
@@ -55,8 +55,6 @@ for FOLDER_NAME in input models notebooks
 do
     mkdir -p ./$PROJECT_NAME/src/$FOLDER_NAME
 done
-
-./$PROJECT_NAME/bin/activate
 
 ./$PROJECT_NAME/bin/python -m pip install --upgrade pip
 
