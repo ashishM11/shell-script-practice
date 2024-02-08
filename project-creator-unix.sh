@@ -2,19 +2,23 @@
 
 # Author : Ashish R. Tiwari
 
+#!/bin/sh
+
+# Author : Ashish R. Tiwari
+
 # User will provide project name.
 printf 'Enter the Project Name:\n'
 read -r PROJECT_NAME
 
-printf 'Enter the Project Type No. : \n0.Normal Virtual Enviorment.\n 1. Machine Learning.\n 2. Deep Learning.\n 3.Natural. Language Processing.\n'
+printf 'Enter the Project Type No.:\n 0. Normal Virtual Enviorment.\n 1. Machine Learning.\n 2. Deep Learning.\n 3. Natural Language Processing.\n'
 read -r PROJECT_TYPE
 
 virtualenv "$PROJECT_NAME"
 
-printf 'Enter the Project Owner : \n'
+printf 'Enter the Project Owner Name:\n'
 read -r PROJECT_OWNER
 
-echo 'Enter the Owner Group Name : \n'
+echo 'Enter the Owner Group Name:\n'
 read -r GROUP_NAME
 
 sudo chown "$PROJECT_OWNER":"$GROUP_NAME" ./"$PROJECT_NAME"/*
@@ -23,6 +27,7 @@ sudo chmod -R 777 ./"$PROJECT_NAME"/*
 ./"$PROJECT_NAME"/bin/activate
 
 touch ./"$PROJECT_NAME"/requirements.txt
+curl -o ./"$PROJECT_NAME"/.gitignore https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore  
 
 if [ "$PROJECT_TYPE" = 1 ]
 then
